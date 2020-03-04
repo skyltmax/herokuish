@@ -75,7 +75,7 @@ buildpack-build() {
 	[[ "$USER" ]] || randomize-unprivileged
 	buildpack-setup > /dev/null
 	buildpack-execute | indent
-	procfile-types | indent
+	# procfile-types | indent
 }
 
 buildpack-install() {
@@ -182,18 +182,18 @@ buildpack-execute() {
 	if [[ -f "$selected_path/bin/release" ]]; then
 		unprivileged "$selected_path/bin/release" "$build_path" "$cache_path" > "$build_path/.release"
 	fi
-	if [[ -f "$build_path/.release" ]]; then
-		config_vars="$(cat "$build_path/.release" | yaml-get config_vars)"
-		if [[ "$config_vars" ]]; then
-			mkdir -p "$build_path/.profile.d"
-			OIFS=$IFS
-			IFS=$'\n'
-			for var in $config_vars; do
-				echo "export $(echo "$var" | sed -e 's/=/="/' -e 's/$/"/')" >> "$build_path/.profile.d/00_config_vars.sh"
-			done
-			IFS=$OIFS
-		fi
-	fi
+	# if [[ -f "$build_path/.release" ]]; then
+	# 	config_vars="$(cat "$build_path/.release" | yaml-get config_vars)"
+	# 	if [[ "$config_vars" ]]; then
+	# 		mkdir -p "$build_path/.profile.d"
+	# 		OIFS=$IFS
+	# 		IFS=$'\n'
+	# 		for var in $config_vars; do
+	# 			echo "export $(echo "$var" | sed -e 's/=/="/' -e 's/$/"/')" >> "$build_path/.profile.d/00_config_vars.sh"
+	# 		done
+	# 		IFS=$OIFS
+	# 	fi
+	# fi
 	cd - > /dev/null || return 1
 	_move-build-to-app
 }
