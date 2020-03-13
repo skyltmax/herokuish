@@ -182,6 +182,7 @@ buildpack-execute() {
 	if [[ -f "$selected_path/bin/release" ]]; then
 		unprivileged "$selected_path/bin/release" "$build_path" "$cache_path" > "$build_path/.release"
 	fi
+	echo "$selected_name" >> "$build_path/.buildpack_name"
 	# if [[ -f "$build_path/.release" ]]; then
 	# 	config_vars="$(cat "$build_path/.release" | yaml-get config_vars)"
 	# 	if [[ "$config_vars" ]]; then
