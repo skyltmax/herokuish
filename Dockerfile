@@ -3,7 +3,7 @@ FROM heroku/heroku:18
 ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get update -qq \
- && apt-get install -qq -y daemontools \
+ && apt-get install -qq -y daemontools gdb webp \
  && apt-get clean \
  && rm -rf /var/cache/apt/archives/* /var/lib/apt/lists/* /var/tmp/*
 COPY ./build/linux/herokuish /bin/herokuish

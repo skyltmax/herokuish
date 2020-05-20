@@ -15,6 +15,8 @@ github.com/progrium/go-basher v0.0.0-20190315062444-ad5de635edd1 h1:pNf4kIAZbE5u
 github.com/progrium/go-basher v0.0.0-20190315062444-ad5de635edd1/go.mod h1:Oiy7jZEU1mm+gI1dt5MKYwxptmD37q8/UupxnwhMHtI=
 github.com/progrium/go-basher v0.0.0-20200211210542-e8e5c9701b68 h1:2XD0AGz6o//9QGPzOyXLpxeGtj1GivwRm6P0nAR/3oA=
 github.com/progrium/go-basher v0.0.0-20200211210542-e8e5c9701b68/go.mod h1:Oiy7jZEU1mm+gI1dt5MKYwxptmD37q8/UupxnwhMHtI=
+github.com/progrium/go-basher v0.0.0-20200507184539-7aca7038b313 h1:nsApkn3nQzXR9DP9yam0NmO7Y96vvu/XsjRQKJhjQac=
+github.com/progrium/go-basher v0.0.0-20200507184539-7aca7038b313/go.mod h1:Oiy7jZEU1mm+gI1dt5MKYwxptmD37q8/UupxnwhMHtI=
 gopkg.in/check.v1 v0.0.0-20161208181325-20d25e280405/go.mod h1:Co6ibVJAznAaIkqp8huTwlJQCZ016jof/cbN4VW5Yz0=
 gopkg.in/yaml.v2 v2.2.2 h1:ZCJp+EgiOT7lHqUV2J862kp8Qj64Jo6az82+3Td9dZw=
 gopkg.in/yaml.v2 v2.2.2/go.mod h1:hI93XBmqTisBFMUTm0b8Fm+jr3Dg1NNxqwp+5A1VGuI=

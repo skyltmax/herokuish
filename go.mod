@@ -8,6 +8,6 @@ require (
 	github.com/mitchellh/go-homedir v1.1.0 // indirect
 	github.com/progrium/basht v0.1.0 // indirect
 	github.com/progrium/gh-release v2.2.1+incompatible // indirect
-	github.com/progrium/go-basher v0.0.0-20200211210542-e8e5c9701b68
+	github.com/progrium/go-basher v0.0.0-20200507184539-7aca7038b313
 	gopkg.in/yaml.v2 v2.2.2
 )
