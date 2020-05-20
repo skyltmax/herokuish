@@ -10,6 +10,46 @@ All notable changes to this project will be documented in this file.
 
 ### Changed
 
+## [0.5.13] - 2020-05-07
+
+### Changed
+- @josegonzalez Update go to version v142
+- @josegonzalez Update nodejs to version v171
+- @josegonzalez Update php to version v174
+
+## [0.5.12] - 2020-04-25
+
+### Changed
+- @josegonzalez Update go to version v141
+- @josegonzalez Update python to version v169
+- @josegonzalez Update ruby to version v215
+- @josegonzalez Update static to version v13
+
+## [0.5.11] - 2020-04-02
+
+### Changed
+- @josegonzalez Update ruby to version v214
+
+## [0.5.10] - 2020-04-01
+
+### Changed
+- @josegonzalez Update ruby to version v213
+
+## [0.5.9] - 2020-03-31
+### Changed
+- @josegonzalez Update go to version v139
+- @josegonzalez Update nodejs to version v170
+- @josegonzalez Update php to version v173
+- @josegonzalez Update python to version v167
+- @josegonzalez Update ruby to version v212
+- @dependabot Bump symfony/http-foundation from 4.4.1 to 4.4.7
+
+## [0.5.8] - 2020-03-16
+### Changed
+- @josegonzalez Update go to version v138
+- @josegonzalez Update python to version v166
+- @josegonzalez Update ruby to version v211
+
 ## [0.5.7] - 2020-02-02
 ### Changed
 - @dependabot Bump django from 1.11.23 to 1.11.28
@@ -624,7 +664,13 @@ All notable changes to this project will be documented in this file.
 - User for `buildpack-build` is `$USER` or randomized
 - User for `procfile-exec` is `$USER` or detected from `/app`
 
-[unreleased]: https://github.com/gliderlabs/herokuish/compare/v0.5.7...HEAD
+[unreleased]: https://github.com/gliderlabs/herokuish/compare/v0.5.13...HEAD
+[0.5.13]: https://github.com/gliderlabs/herokuish/compare/v0.5.12...v0.5.13
+[0.5.12]: https://github.com/gliderlabs/herokuish/compare/v0.5.11...v0.5.12
+[0.5.11]: https://github.com/gliderlabs/herokuish/compare/v0.5.10...v0.5.11
+[0.5.10]: https://github.com/gliderlabs/herokuish/compare/v0.5.9...v0.5.10
+[0.5.9]: https://github.com/gliderlabs/herokuish/compare/v0.5.8...v0.5.9
+[0.5.8]: https://github.com/gliderlabs/herokuish/compare/v0.5.7...v0.5.8
 [0.5.7]: https://github.com/gliderlabs/herokuish/compare/v0.5.6...v0.5.7
 [0.5.6]: https://github.com/gliderlabs/herokuish/compare/v0.5.5...v0.5.6
 [0.5.5]: https://github.com/gliderlabs/herokuish/compare/v0.5.4...v0.5.5
