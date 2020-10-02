@@ -1,11 +1,14 @@
 NAME = herokuish
+DESCRIPTION = 'Herokuish uses Docker and Buildpacks to build applications like Heroku'
 HARDWARE = $(shell uname -m)
-VERSION ?= 0.5.13
+VERSION ?= 0.5.18
 IMAGE_NAME ?= $(NAME)
 BUILD_TAG ?= dev
+PACKAGECLOUD_REPOSITORY ?= dokku/dokku-betafish
 
 BUILDPACK_ORDER := multi ruby nodejs clojure python java gradle scala play php go static
 SHELL := /bin/bash
+SYSTEM := $(shell sh -c 'uname -s 2>/dev/null')
 
 shellcheck:
 ifneq ($(shell shellcheck --version > /dev/null 2>&1 ; echo $$?),0)
@@ -16,6 +19,19 @@ else
 	@sudo apt-get update && sudo apt-get install -y shellcheck
 endif
 endif
+
+fpm:
+ifeq ($(SYSTEM),Linux)
+	sudo apt-get update && sudo apt-get -y install gcc git build-essential wget ruby-dev ruby1.9.1 lintian rpm help2man man-db
+	command -v fpm >/dev/null || gem install fpm --no-ri --no-rdoc
+endif
+
+package_cloud:
+ifeq ($(SYSTEM),Linux)
+	sudo apt-get update && sudo apt-get -y install gcc git build-essential wget ruby-dev ruby1.9.1 lintian rpm help2man man-db
+	command -v package_cloud >/dev/null || gem install package_cloud --no-ri --no-rdoc
+endif
+
 
 build:
 	@count=0; \
@@ -42,6 +58,7 @@ deps:
 	go get -u github.com/jteeuwen/go-bindata/...
 	go get -u github.com/progrium/basht/...
 	go get || true
+
 
 test:
 	basht tests/*/tests.sh
