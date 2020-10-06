@@ -22,7 +22,7 @@ RUN apt-get update -qq && apt-get install -y python3 python3-pip python3-setupto
 ENV VIPS_VERSION 8.10.1
 
 RUN apt-get install -y --no-install-recommends glib2.0-dev expat gobject-introspection libjpeg-dev libexif-dev \
-  libgif-dev librsvg2-dev libpoppler-glib-dev libtiff-dev fftw3-dev liblcms2-dev libpng-dev \
+  libgif-dev librsvg2-dev libpoppler-glib-dev libtiff-dev fftw3-dev liblcms2-dev libpng-dev poppler-utils \
   libpango1.0-dev liborc-0.4-dev libwebp-dev libmagickwand-dev \
   && curl -fsSLO --compressed "https://github.com/libvips/libvips/releases/download/v$VIPS_VERSION/vips-$VIPS_VERSION.tar.gz" \
   && tar -xzf "vips-$VIPS_VERSION.tar.gz" --no-same-owner \
