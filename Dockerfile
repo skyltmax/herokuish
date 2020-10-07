@@ -35,6 +35,15 @@ RUN apt-get install -y --no-install-recommends glib2.0-dev expat gobject-introsp
   && cd / \
   && rm -r "vips-$VIPS_VERSION"
 
+# Chrome
+ENV CHROME_VERSION 86
+ENV CHROME_HEADLESS true
+
+RUN wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | apt-key add - \
+  && echo "deb http://dl.google.com/linux/chrome/deb/ stable main" | tee /etc/apt/sources.list.d/google-chrome.list \
+  && apt-get update \
+	&& apt-get install -y --no-install-recommends google-chrome-stable=86.\*
+
 RUN apt-get update -qq \
  && apt-get install -qq -y daemontools gdb webp \
  && apt-get clean \
