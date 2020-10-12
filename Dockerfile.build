@@ -35,6 +35,31 @@ RUN apt-get install -y --no-install-recommends glib2.0-dev expat gobject-introsp
   && cd / \
   && rm -r "vips-$VIPS_VERSION"
 
+RUN echo '<policymap> \
+  <!-- <policy domain="resource" name="temporary-path" value="/tmp"/> --> \
+  <!-- <policy domain="resource" name="memory" value="2GiB"/> --> \
+  <!-- <policy domain="resource" name="map" value="4GiB"/> --> \
+  <!-- <policy domain="resource" name="area" value="1GB"/> --> \
+  <!-- <policy domain="resource" name="disk" value="16EB"/> --> \
+  <!-- <policy domain="resource" name="file" value="768"/> --> \
+  <!-- <policy domain="resource" name="thread" value="4"/> --> \
+  <!-- <policy domain="resource" name="throttle" value="0"/> --> \
+  <!-- <policy domain="resource" name="time" value="3600"/> --> \
+  <!-- <policy domain="system" name="precision" value="6"/> --> \
+  <policy domain="cache" name="shared-secret" value="passphrase"/> \
+  <policy domain="coder" rights="none" pattern="EPHEMERAL" /> \
+  <policy domain="coder" rights="none" pattern="URL" /> \
+  <policy domain="coder" rights="none" pattern="HTTPS" /> \
+  <policy domain="coder" rights="none" pattern="MVG" /> \
+  <policy domain="coder" rights="none" pattern="MSL" /> \
+  <policy domain="coder" rights="none" pattern="TEXT" /> \
+  <policy domain="coder" rights="none" pattern="SHOW" /> \
+  <policy domain="coder" rights="none" pattern="WIN" /> \
+  <policy domain="coder" rights="none" pattern="PLT" /> \
+  <policy domain="path" rights="none" pattern="@*" /> \
+</policymap>' \
+> /etc/ImageMagick-6/policy.xml
+
 # Chrome
 ENV CHROME_VERSION 86
 ENV CHROME_HEADLESS true
