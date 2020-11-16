@@ -53,8 +53,8 @@ clean:
 	docker rmi herokuish:dev || true
 
 deps:
-	docker pull heroku/heroku:18
-	docker pull heroku/heroku:18-build
+	docker pull heroku/heroku:20
+	docker pull heroku/heroku:20-build
 	go get -u github.com/jteeuwen/go-bindata/...
 	go get -u github.com/progrium/basht/...
 	go get || true
