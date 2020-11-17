@@ -26,12 +26,12 @@ ENV VIPS_VERSION 8.10.2
 
 RUN apt-get install -y --no-install-recommends glib2.0-dev expat gobject-introspection libjpeg-dev libexif-dev \
   libgif-dev librsvg2-dev libpoppler-glib-dev libtiff-dev fftw3-dev liblcms2-dev libpng-dev poppler-utils \
-  libpango1.0-dev liborc-0.4-dev libwebp-dev libmagickwand-dev \
+  libpango1.0-dev liborc-0.4-dev libwebp-dev imagemagick graphicsmagick graphicsmagick-libmagick-dev-compat \
   && curl -fsSLO --compressed "https://github.com/libvips/libvips/releases/download/v$VIPS_VERSION/vips-$VIPS_VERSION.tar.gz" \
   && tar -xzf "vips-$VIPS_VERSION.tar.gz" --no-same-owner \
   && rm "vips-$VIPS_VERSION.tar.gz" \
   && cd "vips-$VIPS_VERSION" \
-  && ./configure \
+  && ./configure --with-magick --with-magickpackage=GraphicsMagick --without-libspng \
   && make \
   && make install \
   && ldconfig \
