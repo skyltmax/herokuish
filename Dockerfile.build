@@ -26,12 +26,12 @@ ENV VIPS_VERSION 8.10.2
 
 RUN apt-get install -y --no-install-recommends glib2.0-dev expat gobject-introspection libjpeg-dev libexif-dev \
   libgif-dev librsvg2-dev libpoppler-glib-dev libtiff-dev fftw3-dev liblcms2-dev libpng-dev poppler-utils \
-  libpango1.0-dev liborc-0.4-dev libwebp-dev imagemagick graphicsmagick graphicsmagick-libmagick-dev-compat \
+  libpango1.0-dev liborc-0.4-dev libwebp-dev imagemagick libmagickwand-dev \
   && curl -fsSLO --compressed "https://github.com/libvips/libvips/releases/download/v$VIPS_VERSION/vips-$VIPS_VERSION.tar.gz" \
   && tar -xzf "vips-$VIPS_VERSION.tar.gz" --no-same-owner \
   && rm "vips-$VIPS_VERSION.tar.gz" \
   && cd "vips-$VIPS_VERSION" \
-  && ./configure --with-magick --with-magickpackage=GraphicsMagick --without-libspng \
+  && ./configure --without-libspng \
   && make \
   && make install \
   && ldconfig \
@@ -64,13 +64,13 @@ RUN echo '<policymap> \
 > /etc/ImageMagick-6/policy.xml
 
 # Chrome
-ENV CHROME_VERSION 86
+ENV CHROME_VERSION 87
 ENV CHROME_HEADLESS true
 
 RUN wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | apt-key add - \
   && echo "deb http://dl.google.com/linux/chrome/deb/ stable main" | tee /etc/apt/sources.list.d/google-chrome.list \
   && apt-get update \
-	&& apt-get install -y --no-install-recommends google-chrome-stable=86.\*
+	&& apt-get install -y --no-install-recommends google-chrome-stable=87.\*
 
 RUN apt-get update -qq \
  && apt-get install -qq -y daemontools gdb webp \
